@@ -16,7 +16,9 @@ export class MovielistComponent {
       next : (data : Movie[]) => {
         console.log(data)
         this.list = data
-      }
+      },
+      error : (error) => console.log(error.message)
+
     })
   }
 }

@@ -1,12 +1,16 @@
 <app-header></app-header>
-<a routerLink="login" *ngIf="!status">Page de connexion</a>
 
 @if(status){
   <button (click)="logout()">Déconnexion</button>
   <a routerLink="userlist">Liste des membres</a>
   <button (click)="readToken()">Token</button>
+  <a routerLink="newmovie">Nouveau film</a>
 }
-|
-<a routerLink="movie">Liste de film</a> |
+
+@else {
+  <a routerLink="login" >Page de connexion</a> |
+  <a routerLink="register" >Enregistrement</a>
+}
+ | <a routerLink="movie">Liste de film</a> |
 <hr />
 <router-outlet></router-outlet>

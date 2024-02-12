@@ -4,3 +4,7 @@ export interface User {
   nickname : string
   email : string
 }
+
+export interface RegisterForm extends User {
+  password : string
+}

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { User } from '../models/user.model';
+import { RegisterForm, User } from '../models/user.model';
 
 import * as jwt_decode from 'jwt-decode'
 
@@ -52,8 +52,8 @@ export class AuthService {
   }
 
   getAllUsers() : Observable<User[]> {
-    let myHeader : HttpHeaders = new HttpHeaders({"authorization" : "bearer " + localStorage.getItem("token")})
-    return this._client.get<User[]>(this.url + "auth", {headers : myHeader})
+    //let myHeader : HttpHeaders = new HttpHeaders({"authorization" : "bearer " + localStorage.getItem("token")})
+    return this._client.get<User[]>(this.url + "auth"/*, {headers : myHeader}*/)
   }
 
   readToken() {
@@ -62,5 +62,16 @@ export class AuthService {
     console.log(jwt);
     let role = jwt['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
     console.log(role)
+  }
+
+  getRole() : string {
+    let token : string = localStorage.getItem("token") ?? ""
+    let jwt : any = jwt_decode.jwtDecode(token)
+    let role = jwt['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+    return role
+  }
+
+  register(form : RegisterForm) : Observable<any> {
+    return this._client.post(this.url + "auth/register", form)
   }
 }

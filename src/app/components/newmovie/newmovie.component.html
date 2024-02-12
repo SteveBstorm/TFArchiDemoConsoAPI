@@ -1,0 +1,19 @@
+<h3>Création d'un film</h3>
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div style="border: 1px black solid; margin: 3px; padding : 2px; border-radius: 5px;">
+    Titre : <input formControlName="title" type="text">
+  </div>
+  <div style="border: 1px black solid; margin: 3px; border-radius: 5px;">
+    Année de sortie : <input formControlName="releaseYear" type="number">
+  </div>
+  <div style="border: 1px black solid; margin: 3px; border-radius: 5px;">
+    Synopsis : <textarea formControlName="synopsis"></textarea>
+  </div>
+  <div style="border: 1px black solid; margin: 3px; padding : 2px; border-radius: 5px;">
+    Prénom réal : <input formControlName="realfirstName" type="text">
+  </div>
+  <div style="border: 1px black solid; margin: 3px; padding : 2px; border-radius: 5px;">
+    Nom réal : <input formControlName="reallastName" type="text">
+  </div>
+  <button [disabled]="myForm.invalid">Valider</button>
+</form>

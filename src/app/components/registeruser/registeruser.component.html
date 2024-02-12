@@ -1,0 +1,14 @@
+<h3>Création d'un compte</h3>
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div style="border: 1px black solid; margin: 3px; border-radius: 5px;">
+    Email : <input formControlName="email" type="email">
+  </div>
+  <div style="border: 1px black solid; margin: 3px; border-radius: 5px;">
+    Nickname : <input formControlName="nickname" type="text">
+  </div>
+  <div style="border: 1px black solid; margin: 3px; border-radius: 5px;">
+    Mot de passe : <input formControlName="password" type="password">
+  </div>
+
+  <button [disabled]="myForm.invalid">Valider</button>
+</form>

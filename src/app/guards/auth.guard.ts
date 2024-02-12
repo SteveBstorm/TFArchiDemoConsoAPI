@@ -4,6 +4,7 @@ import { inject } from '@angular/core';
 
 export const authGuard: CanActivateFn = (route, state) => {
   let authService : AuthService = inject(AuthService)
+  console.log(authService.isTokenExist);
 
-  return !authService.isTokenExist;
+  return authService.isTokenExist;
 };
