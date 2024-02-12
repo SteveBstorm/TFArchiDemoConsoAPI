@@ -21,4 +21,8 @@ export class AppComponent {
   logout() {
     this._authService.logout()
   }
+
+  readToken() {
+    this._authService.readToken()
+  }
 }

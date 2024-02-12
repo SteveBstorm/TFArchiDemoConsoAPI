@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../models/user.model';
 
+import * as jwt_decode from 'jwt-decode'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -52,5 +54,13 @@ export class AuthService {
   getAllUsers() : Observable<User[]> {
     let myHeader : HttpHeaders = new HttpHeaders({"authorization" : "bearer " + localStorage.getItem("token")})
     return this._client.get<User[]>(this.url + "auth", {headers : myHeader})
+  }
+
+  readToken() {
+    let token : string = localStorage.getItem("token") ?? ""
+    let jwt : any = jwt_decode.jwtDecode(token)
+    console.log(jwt);
+    let role = jwt['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+    console.log(role)
   }
 }
