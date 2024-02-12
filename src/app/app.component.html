@@ -1,0 +1,11 @@
+<app-header></app-header>
+<a routerLink="login" *ngIf="!status">Page de connexion</a>
+
+@if(status){
+  <button (click)="logout()">Déconnexion</button>
+  <a routerLink="userlist">Liste des membres</a>
+}
+|
+<a routerLink="movie">Liste de film</a> |
+<hr />
+<router-outlet></router-outlet>

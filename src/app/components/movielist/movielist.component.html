@@ -1,0 +1,8 @@
+<h3>Liste des films</h3>
+
+@for (m of list; track $index) {
+  <div style="border: 1px black solid; margin:3px; padding: 3px;">
+    <p><strong>{{m.title}}</strong></p>
+    <p>{{m.synopsis}}</p>
+  </div>
+}

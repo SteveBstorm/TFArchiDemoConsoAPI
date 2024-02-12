@@ -1,0 +1,10 @@
+<h3>LoginForm</h3>
+
+<p>Statut de connexion : {{status}}</p>
+
+<div>
+  <p>Email : <input type="email" [(ngModel)]="email"></p>
+  <p>Mot de passe : <input type="password" [(ngModel)]="password"></p>
+</div>
+<button (click)="login()">Connexion</button>
+<!-- <button (click)="logout()">Déconnexion</button> -->
